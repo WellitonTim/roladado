@@ -1,0 +1,75 @@
+<html>
+
+Selecione qual dado vc quer rolar:
+<br>
+<br>
+D <select id="dados">
+ 	<option value="100">100</option>
+ 	<option value="20">20</option>
+	<option value="10">10</option>
+	<option value="8">8</option>
+	<option value="6">6</option>
+	<option value="4">4</option>
+
+</select>
+<br>
+<br>
+
+Informe a quantidade de dados você quer rolar:
+<br>
+<br>
+<input id="quantidade">
+
+
+
+<br>
+<br>
+<button type="button" onclick="rolagem()">rolar</button>
+
+<br>
+<br>
+O valor total da rolagem foi:
+<br>
+<br>
+
+<input id="soma">
+
+<div id="rolagem"></div>
+
+
+
+
+
+<script>
+
+		
+
+
+function rolagem(){
+		
+		var quantidade = document.getElementById("quantidade")
+		var quant = +quantidade.value
+		var dados = document.getElementById("dados")
+		var selecionado = +dados.options[dados.selectedIndex].text
+		var dsoma = 0
+		var cont = 1
+		var exiberolagem = document.querySelector("#rolagem")
+		exiberolagem.innerHTML = ""
+		while(cont <= quant){
+			var resultado = Math.floor(Math.random() * (selecionado - 1 + 1 ) ) + 1
+			exiberolagem.innerHTML += `<p>rolagem ${cont}: ${resultado}</p>`  
+			var d = resultado
+			var dsoma = resultado + dsoma
+			cont++
+		}
+		
+
+var soma = document.getElementById("soma")
+soma.value = dsoma
+		
+}
+
+
+</script>
+
+</html>
